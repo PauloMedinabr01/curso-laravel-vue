@@ -6,15 +6,13 @@ use App\Http\Controllers\Index\IndexController;
 use App\Http\Controllers\Produto\ProdutoController;
 use Illuminate\Support\Facades\Route;
 
-Route::prefix('/app')->group(function () {
+// ===============================
+// Index (página inicial)
+// ===============================
+Route::get('/', [IndexController::class, 'index'])
+    ->name('index.index');
 
-    // ===============================
-    // Grupo Index (página inicial)
-    // ===============================
-    Route::prefix('index')->group(function () {
-        Route::get('/', [IndexController::class, 'index'])
-            ->name('index.index');
-    });
+Route::prefix('/app')->group(function () {
 
     // ===============================
     // Grupo de Produtos
